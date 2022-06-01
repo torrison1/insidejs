@@ -2,8 +2,6 @@ console.log('Main Page Loading...');
 
 let App_main_page = Object ();
 
-console.log('State loading!');
-
 App_main_page.init = function () {
 
     let head_code = insideJS_tools.getFile('app/main_page/head.html');
