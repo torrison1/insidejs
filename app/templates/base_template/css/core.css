@@ -422,6 +422,7 @@ a {
     height: 60px;
     text-align: center;
     z-index: 50;
+    cursor: pointer;
 }
 .footer_buttons {
     width:24%;

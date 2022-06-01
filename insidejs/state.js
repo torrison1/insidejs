@@ -1,4 +1,4 @@
-let insideJS_state = Object ();
+let insideJS_state = Object();
 
 console.log('State loading!');
 
@@ -10,6 +10,8 @@ insideJS_state.init = function ()
     } else {
         insideJS_state.stateData = {
             "page" : "index",
+            "has_template_system" : true,
+            "template" : "base_template",
             "redirect" : false
         };
         localStorage.setItem('inside_js_state_json', JSON.stringify(insideJS_state.stateData));
