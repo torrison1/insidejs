@@ -1,4 +1,5 @@
-let insideJS_init = Object ();
+let insideJS = Object();
+insideJS.myApp = Object();
 
 console.log('Initialization...');
 

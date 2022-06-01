@@ -1,15 +1,15 @@
-let insideJS_router = Object ();
+insideJS.router = Object ();
 
 console.log('Routing...');
 
-insideJS_router.route = function ()
+insideJS.router.route = function ()
 {
-    if (insideJS_state.stateData.has_template_system) {
+    if (insideJS.state.stateData.has_template_system) {
         insideJS_loader.loadScript('app/templates/base_template/init.js');
     }
-    else if (insideJS_state.stateData.page == "index") {
+    else if (insideJS.state.stateData.page == "index") {
         // ???
     }
 };
 
-insideJS_router.route();
+insideJS.router.route();

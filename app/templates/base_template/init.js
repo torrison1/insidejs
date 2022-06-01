@@ -1,43 +1,44 @@
 console.log('Base Template Loading...');
 
-let App_base_template = Object ();
+insideJS.myApp.App_base_template = Object ();
 
-App_base_template.init = function () {
+insideJS.myApp.App_base_template.init = function () {
 
     insideJS_loader.loadScript('app/navigation/init.js');
 
-    let head_code = insideJS_tools.getFile('app/templates/base_template/head.html');
+    let head_code = insideJS.tools.getFile('app/templates/base_template/head.html');
     document.getElementsByTagName('head')[0].innerHTML = head_code;
 
-    let body_template = insideJS_tools.getFile('app/templates/base_template/body_template.html');
+    let body_template = insideJS.tools.getFile('app/templates/base_template/body_template.html');
     document.getElementsByTagName('body')[0].innerHTML = body_template;
 
-    App_base_template.route();
+    insideJS.myApp.App_base_template.route();
 
 };
 
-App_base_template.route = function () {
+insideJS.myApp.App_base_template.route = function () {
 
-    if (insideJS_state.stateData.page == 'index') {
+    if (insideJS.state.stateData.page == 'index') {
 
-        if (typeof App_main_page === 'undefined') {
-            insideJS_loader.loadScript('app/main_page/init.js');
-        } else {
-            App_main_page.init();
-        }
+        insideJS.myApp.App_base_template.load('App_main_page', 'app/main_page/init.js');
+
 
     }
 
-    if (insideJS_state.stateData.page == 'auth') {
+    if (insideJS.state.stateData.page == 'auth') {
 
-        if (typeof App_auth_page === 'undefined') {
-            insideJS_loader.loadScript('app/auth_page/init.js');
-        } else {
-            App_auth_page.init();
-        }
+        insideJS.myApp.App_base_template.load('App_auth_page', 'app/auth_page/init.js');
 
     }
 };
 
-App_base_template.init();
+insideJS.myApp.App_base_template.load = function (obj_name, path) {
+    if (typeof insideJS.myApp[obj_name] === 'undefined') {
+        insideJS_loader.loadScript(path);
+    } else {
+        insideJS.myApp[obj_name].init();
+    }
+};
+
+insideJS.myApp.App_base_template.init();
 

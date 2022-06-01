@@ -1,9 +1,8 @@
 console.log('JS Tools Adding...');
 
-let insideJS_tools = Object ();
+insideJS.tools = Object ();
 
-
-insideJS_tools.forceSWupdate = function () {
+insideJS.tools.forceSWupdate = function () {
     if ('serviceWorker' in navigator) {
         caches.keys().then(function(cacheNames) {
             cacheNames.forEach(function(cacheName) {
@@ -19,7 +18,7 @@ insideJS_tools.forceSWupdate = function () {
 };
 
 // Debug Function
-insideJS_tools.dump_alert = function (obj) {
+insideJS.tools.dump_alert = function (obj) {
     let out = "";
     if(obj && typeof(obj) == "object"){
         for (var i in obj) {
@@ -31,7 +30,7 @@ insideJS_tools.dump_alert = function (obj) {
     alert(out);
 };
 
-insideJS_tools.dump_log = function (obj) {
+insideJS.tools.dump_log = function (obj) {
     let out = "";
     if(obj && typeof(obj) == "object"){
         for (var i in obj) {
@@ -43,7 +42,7 @@ insideJS_tools.dump_log = function (obj) {
     console.log(out);
 };
 
-insideJS_tools.getFile = function (U) {
+insideJS.tools.getFile = function (U) {
     var X = new XMLHttpRequest();
     X.open('GET', U, false);
     X.send();
