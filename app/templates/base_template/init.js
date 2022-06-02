@@ -20,23 +20,12 @@ insideJS.myApp.App_base_template.route = function () {
 
     if (insideJS.state.stateData.page == 'index') {
 
-        insideJS.myApp.App_base_template.load('App_main_page', 'app/main_page/init.js');
-
-
+        insideJS_loader.safe_load('App_main_page', 'app/main_page/init.js');
     }
 
     if (insideJS.state.stateData.page == 'auth') {
 
-        insideJS.myApp.App_base_template.load('App_auth_page', 'app/auth_page/init.js');
-
-    }
-};
-
-insideJS.myApp.App_base_template.load = function (obj_name, path) {
-    if (typeof insideJS.myApp[obj_name] === 'undefined') {
-        insideJS_loader.loadScript(path);
-    } else {
-        insideJS.myApp[obj_name].init();
+        insideJS_loader.safe_load('App_auth_page', 'app/auth_page/init.js');
     }
 };
 

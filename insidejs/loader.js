@@ -31,6 +31,14 @@ insideJS_loader.loadScript = function(url, callback = function(){}){
 
 };
 
+insideJS_loader.safe_load = function (obj_name, path) {
+    if (typeof insideJS.myApp[obj_name] === 'undefined') {
+        insideJS_loader.loadScript(path);
+    } else {
+        insideJS.myApp[obj_name].init();
+    }
+};
+
 console.log('Loading...');
 
 insideJS_loader.loadScript('insidejs/init.js');
